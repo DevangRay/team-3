@@ -1,28 +1,29 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react';
+import React from 'react'
+import { AccessTokenContext } from '../Contexts/accessTokenContext';
+import { useContext } from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function Home() {
-    const [data, setData] = useState();
-    var url = window.location.href;
-    url = url.replace("http://localhost:3000/home?code=", "")
-    var index  = url.indexOf("state")
-    var state = url.slice(index + 6);
-    var code = url.slice(0, index);
+    
+    const { accessToken } = useContext(AccessTokenContext);
+    const [songs, setSongs] = useState([])
 
-    useEffect ( () => {
-        axios.post("http://localhost:9000/callback", {
-            state:state,
-            code:code
-          })
-        .then((res) => res.json())
-        .then((json) => setData(json))
-        .catch((err) => {console.log(err)})
-    }, [code])
-    return(
-        <>
-            <p>You are home!</p>
-            <p>Code: {code}</p>
-            <p>State: {state}</p>
-        </>
-    );
+    useEffect(() => {
+     fetch("/user?token="+ accessToken)
+     .then(res => res.json())
+     .then(data => setSongs(data.items))
+    }, [])
+   
+    console.log(songs)
+    return (
+        <div>
+            <h1>welcome</h1>
+            {songs.length > 0 && 
+                songs.map((val, key) => {
+                    return <p>{val.track.name} by {val.track.artists[0].name}</p>
+            })
+            }
+        </div>
+    )
 }
