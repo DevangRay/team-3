@@ -20,26 +20,29 @@ router.get("/", async (req, res, next) => {
 })
 
 router.get("/callback", async(req, res, next) => {
-    console.log("_________________________________________________________________________")
+    console.log("_________________________________________________________________________") //
     try {
         const code = req.query.code
-        console.log("query:", req.query)
+        console.log("auth.js query:", req.query) //
         const url = "https://accounts.spotify.com/api/token?grant_type=authorization_code&code=" + code + "&redirect_uri=" + redirect_uri
         const headers = {
             'Authorization': 'Basic ' + Buffer.from(client_id + ':' + client_secret, 'utf8').toString('base64'),
             'Content-Type': 'application/x-www-form-urlencoded'
         }
         fetch(url, {method: 'post', headers: headers}).catch(err => console.log(err))
-        .then(res => res.json()).then(data => {
-            console.log("auth.js: ", data)
+        .then(res => res.json())
+        .then(data => {
+            // console.log("result: ", data)
             obj = {
                 url: 'http://localhost:3000/home',
                 token: data.access_token
             }
-            return obj
-        }).then(obj => res.json(obj))
+            return obj //how does this work
+        })
+        .then(obj => res.json(obj))
     }
     catch(err){
+        console.log("auth/callback error")
         console.log(err)
         res.status(500).send(err)
     }

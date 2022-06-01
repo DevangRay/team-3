@@ -7,11 +7,11 @@ var dotenv = require('dotenv').config()
 //actual api calls after authorization
 router.get('/', async (req, res, next) => {
     try{
-        console.log(req.query.token)
+        console.log("user.js query: ", req.query.token)
         const url = 'https://api.spotify.com/v1/me/tracks?offset=0&limit=5'
         const data = await fetch(url, {headers: {
             'Authorization': 'Bearer ' + req.query.token
-        }}).catch(err=> console.log(err))
+        }}).catch(err=> console.log("user/ get error",err))
             .then(res=> res.json())
             .then(data => data)
 

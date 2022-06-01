@@ -1,6 +1,9 @@
 import React, { createContext, useState } from 'react';
 
-const AccessTokenContext = createContext('');
+const AccessTokenContext = createContext({
+    accessToken: '',
+    setUserName: () => {}
+  });
 
 function AccessTokenProvider({ children }) {
     const [accessToken, setAccessToken] = useState('');
