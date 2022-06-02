@@ -3,6 +3,7 @@ import { AccessTokenContext } from '../Contexts/accessTokenContext';
 import { useContext } from 'react';
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import {Helmet} from "react-helmet";
 
 
 function Login() {
@@ -51,6 +52,9 @@ function Login() {
 
     return (
         <div>
+            <Helmet>
+           <title>Login</title>
+            </Helmet>
             <button onClick={(e) => onClick(e)}>
                 Log in to App
             </button>

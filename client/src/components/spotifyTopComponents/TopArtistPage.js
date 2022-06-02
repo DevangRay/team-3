@@ -2,6 +2,7 @@ import { ButtonGroup, Button } from '@mui/material';
 import {useState, useEffect, useContext} from 'react';
 import { AccessTokenContext } from '../../Contexts/accessTokenContext';
 import CardTopArtist from './CardTopArtist';
+import {Helmet} from 'react-helmet'
 
 export default function TopArtistPage() {
     const { accessToken } = useContext(AccessTokenContext);
@@ -22,6 +23,7 @@ export default function TopArtistPage() {
 
     return(
         <>
+            <Helmet><title>Top Artists</title></Helmet>
             <h1>Your Top Artists!</h1>
             <ButtonGroup>
                 {artistToShow==="long_term"?<Button disableElevation color="secondary">All Time</Button>:<Button color="secondary" variant="contained" onClick={() => {setArtistToShow("long_term")}}>All Time</Button>}

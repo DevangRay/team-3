@@ -3,9 +3,9 @@ import { AccessTokenContext } from '../Contexts/accessTokenContext';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import {Helmet} from "react-helmet";
 
 export default function Home() {
-    
     const { accessToken } = useContext(AccessTokenContext);
     const [songs, setSongs] = useState([])
 
@@ -19,6 +19,7 @@ export default function Home() {
     console.log(songs)
     return (
         <div>
+            <Helmet><title>Home Page</title></Helmet>
             <h1>Welcome to the Homepage</h1>
             {songs.length > 0 && 
                 songs.map((val, key) => {

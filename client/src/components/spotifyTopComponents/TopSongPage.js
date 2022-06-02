@@ -2,6 +2,7 @@ import { ButtonGroup, Button } from '@mui/material';
 import {useState, useEffect, useContext} from 'react';
 import { AccessTokenContext } from '../../Contexts/accessTokenContext';
 import CardTopSongs from './CardTopSongs';
+import {Helmet} from "react-helmet";
 
 
 export default function TopSongPage() {
@@ -21,6 +22,7 @@ export default function TopSongPage() {
 
     return(
         <>
+            <Helmet><title>Top Songs</title></Helmet>
             <h1>Your Top Songs!</h1>
             <ButtonGroup>
                 {songToShow==="long_term"?<Button disableElevation color="secondary">All Time</Button>:<Button color="secondary" variant="contained" onClick={() => {setSongToShow("long_term")}}>All Time</Button>}
