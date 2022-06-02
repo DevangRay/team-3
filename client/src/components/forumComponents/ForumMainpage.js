@@ -13,6 +13,12 @@ function Forum() {
   const [currentForumList, setCurrentForumList] = useState([]);
   const [forum, setForum] = useState('');
 
+  useEffect(()=> {
+    
+
+  },[])
+
+
   // useEffect(() => {
   //   const forumList = []
   //       getDocs(collection(db, "forums"))

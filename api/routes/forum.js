@@ -4,12 +4,16 @@ var router = express.Router();
 const db = require("./firebase")
 const {getDocs, collection} = require("firebase/firestore")
 
-router.get("/", async (req, res, next) => {
-  const allDocData = []
-  // console.log(req.query)  // shows the URL params (stuff after the ? in the URL)
-  const docs = await getDocs(collection(db, "fourms"))
-  docs.forEach((doc) => allDocData.push(doc.data()))
-  res.json({result: allDocData})
+router.get("/allForums", async (req, res, next) => {
+  try{
+    const allDocData = []
+    const docs = await getDocs(collection(db, "forums"))
+    docs.forEach((doc) => allDocData.push(doc.data()))
+    res.json({result: allDocData})
+  } catch(err){
+    console.log(err)
+    res.status(500).send(err)
+  }
 })
 
 
