@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.navBar{
+  width: 20%;
+}
+
+.body {
+  width: 80%;
+  float: right;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -3,19 +3,54 @@
     margin: 20px;
     min-width: 60%;
     max-width: 60%;
-    height: 350px;
+    height: 500px;
     margin-left: 20%;
     margin-right: 20%;
 }
 
 .topSong{
-    margin: 20px;
-    min-width: 60%;
-    max-width: 60%;
-    height: 350px;
-    margin-left: 20%;
+    min-width: 75%;
+    max-width: 75%;
+    margin-left: 12%;
     margin-right: 20%;
 }
+
+.songCard {
+    margin: 20px;
+    height: 200px;
+}
+
+.index {
+    padding-top: 150%;
+}
+
+.topSongDescription{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #8983D1;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+
+    transition: opacity .2s, visibility .2s;
+}
+
+.topSongName{
+    /* float: left;
+    width: 60%;
+    text-align: center;
+    justify-content: center; */
+    padding-top: 15%;
+    padding-left: 15%;
+}
+
+.topSong:hover .topSongDescription {
+    visibility: visible;
+    opacity: 0.9;
+  }
 
 .leftBuffer{
     float:left;
