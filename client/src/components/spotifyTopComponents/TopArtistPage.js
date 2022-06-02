@@ -1,6 +1,7 @@
 import { ButtonGroup, Button } from '@mui/material';
 import {useState, useEffect, useContext} from 'react';
 import { AccessTokenContext } from '../../Contexts/accessTokenContext';
+import CardTopArtist from './CardTopArtist';
 
 export default function TopArtistPage() {
     const { accessToken } = useContext(AccessTokenContext);
@@ -13,7 +14,7 @@ export default function TopArtistPage() {
         .then(res => res.json())
         .then(data => {
             setArtists(data)
-            // console.log("data", data)
+            console.log("data", data)
         })
     }, [artistToShow])
 
@@ -23,15 +24,15 @@ export default function TopArtistPage() {
         <>
             <h1>Your Top Artists!</h1>
             <ButtonGroup>
-                <Button onClick={() => {setArtistToShow("long_term")}}>All Time</Button>
-                <Button onClick={() => {setArtistToShow("medium_term")}}>Last Year</Button>
-                <Button onClick={() => {setArtistToShow("short_term")}}>Last Month</Button>
+                {artistToShow==="long_term"?<Button disableElevation color="secondary">All Time</Button>:<Button color="secondary" variant="contained" onClick={() => {setArtistToShow("long_term")}}>All Time</Button>}
+                {artistToShow==="medium_term"?<Button disableElevation color="secondary">Last 6 Months</Button>:<Button variant="contained" color="secondary" onClick={() => {setArtistToShow("medium_term")}}>Last 6 Months</Button>}
+                {artistToShow==="short_term"?<Button  disableElevation color="secondary">Last Month</Button>:<Button variant="contained" color="secondary"onClick={() => {setArtistToShow("short_term")}}>Last Month</Button>}
             </ButtonGroup>
 
-            {artistToShow==="long_term"?<p>All Time</p>:artistToShow==="medium_term"?<p>Last Year</p>:<p>Last Month</p>}
+            {/* {artistToShow==="long_term"?<p>All Time</p>:artistToShow==="medium_term"?<p>Last Year</p>:<p>Last Month</p>} */}
             {artists.length > 0 && 
-                artists.map((val, key) => {
-                    return <p key={key}>{val.name}</p>
+                artists.map((val, index) => {
+                    return <>  <CardTopArtist object={val} index={index} key={index}/> </>
             })}
         </>
     );

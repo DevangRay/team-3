@@ -1,4 +1,32 @@
-.song{
-    padding: 20px;
+.likedSong{
+    /* padding: 20px; */
     margin: 20px;
+    min-width: 60%;
+    max-width: 60%;
+    height: 350px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.topSong{
+    margin: 20px;
+    min-width: 60%;
+    max-width: 60%;
+    height: 350px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.leftBuffer{
+    float:left;
+    min-width: 20%;
+    max-width: 20%;
+    /* border-style: dotted; */
+}
+
+.righttBuffer{
+    float:right;
+    min-width: 20%;
+    max-width: 20%;
+    /* border-style: dashed; */
 }
