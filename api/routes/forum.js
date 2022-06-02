@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const db = require("./firebase")
+const db = require("../firebase")
 const {getDocs, collection} = require("firebase/firestore")
 
 router.get("/allForums", async (req, res, next) => {
@@ -10,6 +10,7 @@ router.get("/allForums", async (req, res, next) => {
     const docs = await getDocs(collection(db, "forums"))
     docs.forEach((doc) => allDocData.push(doc.data()))
     res.json({result: allDocData})
+    console.log(allDocData)
   } catch(err){
     console.log(err)
     res.status(500).send(err)

@@ -11,11 +11,17 @@ import {TextField, Stack, Autocomplete} from '@mui/material'
 function Forum() {
   
   const [currentForumList, setCurrentForumList] = useState([]);
+  const[searchForumList, setSearchForumList] = useState();
   const [forum, setForum] = useState('');
 
   useEffect(()=> {
-    
-
+    fetch('http://localhost:9000/forum/allForums')
+    .then(res=>res.json())
+    .then(
+      data => setCurrentForumList(data)
+    ).then(
+      
+    )
   },[])
 
 
@@ -36,6 +42,7 @@ function Forum() {
   const tempData = [{label: 'Forum 1', forumID: 0}, {label: 'Forum 2', forumID: 1},{label: 'Forum 3', forumID: 2},{label: 'Forum 4', forumID: 3}]
 
   const handleForumSelectSearch = (event) => {
+    console.log(currentForumList)
     console.log(event)
     setForum(event.target.innerText);
   };
