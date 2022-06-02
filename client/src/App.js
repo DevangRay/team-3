@@ -1,5 +1,5 @@
 import './App.css';
-import ForumMainpage from './components/ForumMainpage'
+import ForumMainpage from './components/forumComponents/ForumMainpage'
 
 function App() {
   return (
