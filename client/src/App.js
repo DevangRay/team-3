@@ -1,9 +1,9 @@
 import './App.css';
+import ForumMainpage from './components/ForumMainpage'
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <ForumMainpage />
   );
 }
 
