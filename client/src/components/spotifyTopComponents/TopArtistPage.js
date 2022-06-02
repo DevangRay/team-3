@@ -24,9 +24,9 @@ export default function TopArtistPage() {
         <>
             <h1>Your Top Artists!</h1>
             <ButtonGroup>
-                {artistToShow==="long_term"?<Button disableElevation color="secondary">All Time</Button>:<Button color="secondary" variant="contained" onClick={() => {setArtistToShow("long_term")}}>All Time</Button>}
-                {artistToShow==="medium_term"?<Button disableElevation color="secondary">Last 6 Months</Button>:<Button variant="contained" color="secondary" onClick={() => {setArtistToShow("medium_term")}}>Last 6 Months</Button>}
-                {artistToShow==="short_term"?<Button  disableElevation color="secondary">Last Month</Button>:<Button variant="contained" color="secondary"onClick={() => {setArtistToShow("short_term")}}>Last Month</Button>}
+                {artistToShow==="long_term"?<Button disableElevation color="primary">All Time</Button>:<Button color="primary" variant="contained" onClick={() => {setArtistToShow("long_term")}}>All Time</Button>}
+                {artistToShow==="medium_term"?<Button disableElevation color="primary">Last 6 Months</Button>:<Button color="primary" variant="contained"  onClick={() => {setArtistToShow("medium_term")}}>Last 6 Months</Button>}
+                {artistToShow==="short_term"?<Button  disableElevation color="primary">Last Month</Button>:<Button  color="primary" variant="contained" onClick={() => {setArtistToShow("short_term")}}>Last Month</Button>}
             </ButtonGroup>
 
             {/* {artistToShow==="long_term"?<p>All Time</p>:artistToShow==="medium_term"?<p>Last Year</p>:<p>Last Month</p>} */}

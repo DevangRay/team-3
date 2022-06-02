@@ -12,18 +12,23 @@ import Nav from './components/SideNavbar'
 function App() {
   return (
     <div className="App">
-      <Nav/>
-      <AccessTokenProvider>
-        <Routes>
-          <Route path="/" exact element={<Login/>} />
-          <Route path="home" element={<Home/>}/>
-          <Route path="/error" element={<Error/>}/>
-          <Route path="/top-artists" element={<TopArtistPage/>}/>
-          <Route path="/top-song" element={<TopSongPage/>}/>
-          <Route path="/liked-song" element={<LikedSongPage/>}/>
-          <Route path="/*" element={<Error/>}/>
-        </Routes>
-      </AccessTokenProvider>
+      <div className='navBar'>
+        <Nav/>
+      </div>
+      
+      <div className='body'>
+        <AccessTokenProvider>
+          <Routes>
+            <Route path="/" exact element={<Login/>} />
+            <Route path="home" element={<Home/>}/>
+            <Route path="/error" element={<Error/>}/>
+            <Route path="/top-artists" element={<TopArtistPage/>}/>
+            <Route path="/top-song" element={<TopSongPage/>}/>
+            <Route path="/liked-song" element={<LikedSongPage/>}/>
+            <Route path="/*" element={<Error/>}/>
+          </Routes>
+        </AccessTokenProvider>
+      </div>
     </div>
   );
 }

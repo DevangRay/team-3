@@ -13,7 +13,6 @@ export default function CardTopSongs(props) {
                     component = "img"
                     image = {props.object.album.images[0].url}
                     height="300px"
-                    alt={props.object.name}
                 />
                <CardContent className="topSongDescription" sx={{ display: 'flex', flexDirection: 'column', flex: '1 0 auto' }}>
                     <Typography gutterBottom variant="h3" component="div" sx={{ fontWeight: 'bold' }}>
@@ -25,9 +24,9 @@ export default function CardTopSongs(props) {
                         {props.object.artists[0].name}
                     </Typography>
                 </CardContent>
-                {/* <CardActions>
+                <CardActions>
                     <Button size="small" href={props.object.external_urls.spotify} target="_blank">Listen</Button>
-                </CardActions> */}
+                </CardActions>
                 </CardActionArea>
             </Card>
         </div>
