@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import {Helmet} from "react-helmet";
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
