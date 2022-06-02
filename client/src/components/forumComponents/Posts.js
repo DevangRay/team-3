@@ -32,24 +32,21 @@ function Posts() {
   const postList = [{
     creator:"Mo",
     forumID:"0",
-    likes:0,
     postID:"0",
     text:"Testing1",
-    usersLiked:["Mo"]
+    usersLiked:["Mo","Ahmed"]
   },{
     creator:"Ahmed",
     forumID:"0",
-    likes:0,
     postID:"1",
     text:"I hope this works",
-    usersLiked:[]
+    usersLiked:["Ahmed","Sara"]
   },{
-    creator:"Sarta",
+    creator:"Sara",
     forumID:"0",
-    likes:0,
     postID:"2",
     text:"This is in progress",
-    usersLiked:["Mo"]
+    usersLiked:["Mo","Ahmed"]
   }];
 
   return (
