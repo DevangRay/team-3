@@ -11,7 +11,7 @@ export default function Home() {
 
     useEffect(() => {
         // console.log("Home.js access token: ", accessToken);
-     fetch("http://localhost:9000/user?token="+ accessToken)
+     fetch("http://localhost:9000/user/home?token="+ accessToken)
      .then(res => res.json())
      .then(data => setSongs(data.items))
     }, [])
@@ -19,10 +19,10 @@ export default function Home() {
     console.log(songs)
     return (
         <div>
-            <h1>welcome</h1>
+            <h1>Welcome to the Homepage</h1>
             {songs.length > 0 && 
                 songs.map((val, key) => {
-                    return <p>{val.track.name} by {val.track.artists[0].name}</p>
+                    return <p key={key}>{val.track.name} by {val.track.artists[0].name}</p>
             })
             }
         </div>

@@ -23,7 +23,7 @@ router.get("/callback", async(req, res, next) => {
     console.log("_________________________________________________________________________") //
     try {
         const code = req.query.code
-        console.log("auth.js query:", req.query) //
+        // console.log("auth.js query:", req.query) //
         const url = "https://accounts.spotify.com/api/token?grant_type=authorization_code&code=" + code + "&redirect_uri=" + redirect_uri
         const headers = {
             'Authorization': 'Basic ' + Buffer.from(client_id + ':' + client_secret, 'utf8').toString('base64'),
