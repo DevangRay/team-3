@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
+import {Helmet} from "react-helmet";
 
 
 function Login() {
@@ -44,6 +45,10 @@ function Login() {
             <Button onClick={(e) => onClick(e)}>
                 Log in with Spotify
             </Button>
+
+            <Helmet>
+              <title>Login</title>
+            </Helmet>
         </div>
     )
 }

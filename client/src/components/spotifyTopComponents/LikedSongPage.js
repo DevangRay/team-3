@@ -1,6 +1,8 @@
 import {useState, useEffect, useContext, useReducer} from 'react';
 import { AccessTokenContext } from '../../Contexts/accessTokenContext';
 import CardLikedSongs from './CardLikedSongs';
+import {Helmet} from "react-helmet";
+
 
 export default function LikedSongPage() {
     
@@ -21,6 +23,7 @@ export default function LikedSongPage() {
 
     return(
         <>
+            <Helmet><title>Liked Songs</title></Helmet>
             <h1>Liked Songs</h1>
 
             {songs.length > 0 && 

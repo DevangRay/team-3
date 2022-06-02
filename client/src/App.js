@@ -9,6 +9,7 @@ import LikedSongPage from './components/spotifyTopComponents/LikedSongPage';
 import Error from './components/Error';
 import Home from './components/Home';
 import Nav from './components/SideNavbar'
+
 function App() {
   return (
     <div className="App">

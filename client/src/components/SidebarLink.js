@@ -1,8 +1,8 @@
 import "./sidebarLink.css"
-import { Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
 
 function SidebarLink({text, Icon, link}){
-    
     return (
         <div>
             <Link to = {link} style={{ textDecoration: 'none'}}>
