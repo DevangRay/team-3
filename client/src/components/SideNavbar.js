@@ -20,7 +20,8 @@ const Nav = () => {
       <SidebarLink text = "Top Artist" Icon = {StarIcon} link = "/top-artists" />
       <SidebarLink text = "Top Song" Icon = {AutoAwesomeIcon} link="/top-song"/>
       <SidebarLink text = "Liked Songs" Icon = {FavoriteIcon} link="/liked-song" />
-//       <SidebarLink text = "Messages" Icon = {MessageIcon} link="/message" />
+      <SidebarLink text = "Discover" Icon = {MessageIcon} link = "/discover" />
+       {/* <SidebarLink text = "Messages" Icon = {MessageIcon} link="/message" /> */}
       <SidebarLink text = "Profile" Icon = {PersonIcon} link="/profile" />
       <Link to="/login" style={{ textDecoration: 'none'}}><Button id="logout">Log Out</Button></Link>
     </div>
