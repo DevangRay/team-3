@@ -23,7 +23,9 @@ function App() {
         <Routes>
           <Route path="/login" exact element={<Login/>} />
           <Route path="" exact element={<Login/>} />
+          <Route path="/" exact element={<Login/>} />
         </Routes>
+        
         <div className='navBar'>
           <Nav className="navBar"/>
         </div>
