@@ -51,18 +51,7 @@ function Login() {
     }}}, [])
 
     return (
-      <div className = 'login'>
-
-        <div>
-            {/* <Button onClick={(e) => onClick(e)}>
-                Log in with Spotify
-            </Button> */}
-
-            <Helmet>
-              <title>Login</title>
-            </Helmet>
-        </div>
-        
+      <div className = 'login'>        
         <div className='center'>
           <Helmet>
             <title>Login</title>
