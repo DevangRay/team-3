@@ -11,7 +11,7 @@ export default function Error() {
     
     return (
         <>
-            <Helmet><title>Error</title></Helmet>
+            {/* <Helmet><title>Error</title></Helmet> */}
             <h1>Error</h1>
             <p>Sorry there is has been an error</p>
             {/* <Button onClick={goBack}>Return to Home</Button> */}
