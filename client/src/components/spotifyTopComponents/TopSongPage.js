@@ -24,6 +24,7 @@ export default function TopSongPage() {
         <>
             <Helmet><title>Top Songs</title></Helmet>
             <h1>Your Top Songs!</h1>
+            <h3>Hover over any song to see more information!</h3>
             <ButtonGroup>
                 {songToShow==="long_term"?<Button disableElevation color="primary">All Time</Button>:<Button color="primary" variant="contained" onClick={() => {setSongToShow("long_term")}}>All Time</Button>}
                 {songToShow==="medium_term"?<Button disableElevation color="primary">Last 6 Months</Button>:<Button color="primary" variant="contained"  onClick={() => {setSongToShow("medium_term")}}>Last 6 Months</Button>}

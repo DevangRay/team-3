@@ -25,6 +25,7 @@ export default function TopArtistPage() {
         <>
             <Helmet><title>Top Artists</title></Helmet>
             <h1>Your Top Artists!</h1>
+            <h3>Hover over an image to see more information!</h3>
             <ButtonGroup>
                 {artistToShow==="long_term"?<Button disableElevation color="primary">All Time</Button>:<Button color="primary" variant="contained" onClick={() => {setArtistToShow("long_term")}}>All Time</Button>}
                 {artistToShow==="medium_term"?<Button disableElevation color="primary">Last 6 Months</Button>:<Button color="primary" variant="contained"  onClick={() => {setArtistToShow("medium_term")}}>Last 6 Months</Button>}
