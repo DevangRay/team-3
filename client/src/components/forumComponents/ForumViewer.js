@@ -23,10 +23,28 @@ function ForumViewer(props) {
   },[])
  
   return (
-    <div>
-      <h1>{currentForum}</h1>
-      <CreatePost currentForumName={currentForum}/>
-      <Posts currentForumName={currentForum} currentForumList={forumList}/>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
+      <h1 style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>{currentForum}</h1>
+      <CreatePost currentForumName={currentForum} 
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}/>
+      <Posts currentForumName={currentForum} currentForumList={forumList} 
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}/>
     </div>
   )
 }

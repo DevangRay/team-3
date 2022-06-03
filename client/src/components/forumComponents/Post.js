@@ -5,8 +5,10 @@ import {Box, Button } from '@mui/material'
 
 import axios from 'axios'
 
-function Post(props) {
+function Post (props) {
     const{data} = props;
+    const [userLikedAlready, setUserLikedAlready] = useState(false)
+    const [likedUserList, setLikedUserList] = useState();
     const [likedNumber, setLikedNumber] = useState(0)
     const[liked, setLiked] = useState("Not Liked");
     const [userList, setUserList] = useState([])
@@ -26,37 +28,23 @@ function Post(props) {
     
 
     const likePost = () => {
-
         setLiked("Liked")
+        const temp = likedNumber + 1
+        setLikedNumber(temp)
         
-        //post to firebase and add to like post array in user
-        //post to firebae and add to users Liked array in post
      }
-
     const unLikePost = () => {
-        setLiked("Not Liked")
-    //delete from firebase users liked post array
-    //delete from fireebase posts user liked array  
+        setLiked("Not Liked") 
+        const temp = likedNumber - 1
+        setLikedNumber(temp)
     }
 
-    const changeLike = () => {
-      const newPostToPost={creator:currentUser,
-        forumName:data.creator,
-        likes:data.likes,
-        postID:data.length,
-        text:data.text,
-        usersLiked:data.usersLiked}
-      console.log("newPostToPost: ",newPostToPost)
-      axios.post("http://localhost:9000/posts/updateLike", newPostToPost)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err))
-    };
 
     useEffect(() => {
       checkIfLiked()
       getPostLikeData()
-      changeLike()
 }, [])
+
 
   useEffect(() => { 
     fetch('http://localhost:9000/users/allUsers')
@@ -98,3 +86,47 @@ function Post(props) {
 }
 
 export default Post
+
+
+
+
+// const changeLike = () => {
+//   setLikedUserList(data.usersLiked)
+//   const userLikedAlready = false;
+//   for (let i = 0; i < liked; i++){
+//     if(currentUser === data.usersLiked[i]){
+//       setUserLikedAlready(true);
+//     }
+//   }
+//   if(liked==="Liked" && !userLikedAlready){
+//     const tempPost = likedUserList;
+//     tempPost.push(currentUser)
+//     const newPostToPost={creator:currentUser,
+//       forumName:data.creator,
+//       likes:data.likes,
+//       postID:data.length,
+//       text:data.text,
+//       usersLiked:tempPost}
+//     console.log("newPostToPost: ",newPostToPost)
+//     axios.post("http://localhost:9000/posts/updateLike", newPostToPost)
+//     .then((res) => console.log(res.data))
+//     .catch((err) => console.log(err)) 
+//   }
+
+//   if(liked==="Not Liked" && userLikedAlready){
+//     const tempPost = likedUserList;
+//     tempPost = tempPost.filter(function(item) {
+//       return item !== currentUser
+//     })
+//     const newPostToPost={creator:currentUser,
+//       forumName:data.creator,
+//       likes:data.likes,
+//       postID:data.length,
+//       text:data.text,
+//       usersLiked:tempPost}
+//     console.log("newPostToPost: ",newPostToPost)
+//     axios.post("http://localhost:9000/posts/updateLike", newPostToPost)
+//     .then((res) => console.log(res.data))
+//     .catch((err) => console.log(err)) 
+//   }
+// }

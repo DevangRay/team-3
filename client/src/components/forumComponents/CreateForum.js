@@ -43,7 +43,11 @@ export default function CreateForum(props) {
 };
 
   return (
-    <div>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
       <Button variant="outlined" onClick={handleClickOpen}>
         Create Forum
       </Button>

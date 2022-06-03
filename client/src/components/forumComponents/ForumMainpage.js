@@ -51,10 +51,19 @@ function Forum() {
 
   return (
     <div>
-      <h1>Forum Main Page</h1>
+      <h1 style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>Forum Main Page</h1>
       {
         currentForumList&&
-      <CreateForum forumList = {currentForumList} functionForum={forumListChanged}/>
+      <CreateForum forumList = {currentForumList} functionForum={forumListChanged} 
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}/>
       }
       <Button></Button>
       <Autocomplete
@@ -62,11 +71,19 @@ function Forum() {
       disablePortal
       id="forum-drop-down-search"
       options={currentForumList}
-      sx={{ width: 300 }}
+      sx={{ width: 300,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',}}
       renderInput={(params) =>
       <TextField {...params} label="Forum" />}
     />
-      <ForumViewer currentForum = {forum}/>
+      <ForumViewer currentForum = {forum} 
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}/>
       
     </div>
 
