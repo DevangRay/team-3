@@ -8,7 +8,8 @@ var dotenv = require('dotenv').config()
 router.get('/home', async (req, res, next) => {
     try{
         // console.log("user.js query: ", req.query.token)
-        const url = 'https://api.spotify.com/v1/me/tracks?offset=0&limit=5'
+        // const url = 'https://api.spotify.com/v1/me/tracks?offset=0&limit=5'
+        const url = 'https://api.spotify.com/v1/me'
         const data = await fetch(url, {headers: {
             'Authorization': 'Bearer ' + req.query.token
         }}).catch(err=> console.log("user/ get error",err))

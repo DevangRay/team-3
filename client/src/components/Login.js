@@ -107,8 +107,8 @@ function Login() {
                     Spotify Chat Uses Spotify Authorization!
                 </Typography>
                 <Typography variant="h5" >
-                    Have a Spotify Account Simply Click on the 
-                    Sign In Button to Sign In! 
+                    Have a Spotify Account? 
+                    Simply Click on the Button to Sign In!
                 </Typography>
               <Button
                 fullWidth
