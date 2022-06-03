@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import {Helmet} from "react-helmet";
+import axios from 'axios';
 
 export default function Home() {
     const { accessToken } = useContext(AccessTokenContext);
@@ -14,6 +15,12 @@ export default function Home() {
      fetch("http://localhost:9000/user/home?token="+ accessToken)
      .then(res => res.json())
      .then(data => setSongs(data.items))
+    }, [])
+
+    useEffect( () => {
+        if(songs) {
+            // axios.put('http://localhost:9000/user/profile' + songs.)
+        }
     }, [])
    
     console.log(songs)
