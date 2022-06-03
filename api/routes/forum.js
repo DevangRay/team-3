@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const db = require("../firebase")
-const {getDocs, collection} = require("firebase/firestore")
+const {getDocs, addDoc, collection} = require("firebase/firestore")
 
 router.get("/allForums", async (req, res, next) => {
   try{
@@ -17,9 +17,21 @@ router.get("/allForums", async (req, res, next) => {
   }
 })
 
-router.post("/createForum", (req, res, next) => {
-  console.log(req.body)
-  res.send("Received")
+router.post('/createForum', async (req, res) => {
+  try{
+      console.log(req.body)
+      const ref = await addDoc(collection(db, "forums"), {
+          creator: req.body.creator,
+          forumID: req.body.forumID,
+          forumName: req.body.forumName
+      })
+      console.log('Document written with id', ref.id)
+      return res.status(201).json({message: 'Post Successful!'})
+  } catch(error){
+      console.log(error)
+      return res.status(500).send(error)
+  }
+
 })
 
 

@@ -12,17 +12,17 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function CreateForum(props) {
-  const {forumList} = props;
+  const forumList = props.currentForum
   const [open, setOpen] = useState(false);
   const [newForumName, setNewForumName] = useState("");
   const [creator, setCreator] = useState("mohamedUsername")
-  const [newForum, setNewForum] = useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
+    setNewForumName("")
     setOpen(false);
   };
 
@@ -32,17 +32,13 @@ export default function CreateForum(props) {
       forumName: newForumName,
       forumID: forumList.length
     }
-    setNewForum(tempNewForum)
-    post()
+    axios.post("http://localhost:9000/forum/createForum", tempNewForum)
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err))
+    props.methodToChange()
     setOpen(false);
     setNewForumName("")
   };
-
-  const post = () => {
-    axios.post("http://localhost:9000/posts/createPost", newForum)
-    .then((res) => console.log(res.data))
-    .catch((err) => console.log(err))
-  }
 
   const handleInputText = event => {
     setNewForumName(event.target.value);

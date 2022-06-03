@@ -46,13 +46,6 @@ function Posts(props) {
     .then(makeCurrentPostList())
   },[currentForumName])
 
-  const debugg = () => {
-    console.log("PostList:", postList)
-    console.log("currentPostList:", currentPostList)
-    console.log("currentForumName", currentForumName)
-    console.log("currentForumList: ", currentForumList)
-  };
-
   if(currentForumName === "Choose Forum"){
     return null
   }
@@ -60,8 +53,6 @@ function Posts(props) {
   return (
 
     <div>
-        Will have map function that takes the list of posts and if the current forum matches the forum id then the post will display
-        <Button onClick={debugg}> Debugging</Button>
         {
           currentPostList.map((post) => (
             <Post key={post.postID}data={post}/>

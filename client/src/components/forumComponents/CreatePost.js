@@ -19,7 +19,6 @@ export default function CreatePost(props) {
   const [postList, setPostList] = useState([])
   const [currentUser, setCurrentUser] = useState("mohamedUsername")
   const [tempText, setTempText] = useState("");
-  const [newPost, setNewPost] = useState();
 
   useEffect(()=>{
     fetch('http://localhost:9000/posts/allPosts')
@@ -52,9 +51,6 @@ export default function CreatePost(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  //will have to make api call to get both the current list of forum
-  //and posts to get the current forumID from currentForumName
-  //as well as get the total post number to get the postID
 
   const handleInputText = event => {
     setTempText(event.target.value);
@@ -66,8 +62,8 @@ export default function CreatePost(props) {
       forumName:currentForumName,
       likes:0,
       postID:postList.length,
-      text:tempText}
-    setNewPost(newPostToPost)
+      text:tempText,
+      usersLiked:[]}
     console.log("newPostToPost: ",newPostToPost)
     axios.post("http://localhost:9000/posts/createPost", newPostToPost)
     .then((res) => console.log(res.data))

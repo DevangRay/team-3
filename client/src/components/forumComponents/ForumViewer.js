@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import {Button} from '@mui/material'
 
 import Posts from './Posts';
 import CreatePost from './CreatePost';
@@ -21,19 +20,10 @@ function ForumViewer(props) {
         setForumList(finalList)
       }
     )
-  },[currentForum])
-
-  const debugg = () => {
-    console.log(currentForum)
-  }
-
-  
-
-    
-  //currentForum gets passed along as prop fine and updates fine 
+  },[])
+ 
   return (
     <div>
-      <Button onClick={debugg}>Load Search</Button>
       <h1>{currentForum}</h1>
       <CreatePost currentForumName={currentForum}/>
       <Posts currentForumName={currentForum} currentForumList={forumList}/>

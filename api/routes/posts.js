@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const db = require("../firebase")
-const {getDocs, collection} = require("firebase/firestore")
+const {getDocs, collection,addDoc} = require("firebase/firestore")
 
 router.get("/allPosts", async (req, res, next) => {
   try{
@@ -17,7 +17,7 @@ router.get("/allPosts", async (req, res, next) => {
   }
 })
 
-  router.post('/createPost', async (req, res) => {
+router.post('/createPost', async (req, res) => {
     try{
         console.log(req.body)
         const ref = await addDoc(collection(db, "posts"), {

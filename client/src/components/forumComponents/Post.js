@@ -48,7 +48,6 @@ function Post(props) {
         const finalList = []
         for (let i = 0; i < tempList.length; i++) {
           finalList.push( {
-              likedPosts:tempList[i].likedPosts,
               name:tempList[i].name,
               password:tempList[i].password,
               publicProfile:tempList[i].publicProfile,
