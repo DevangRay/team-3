@@ -1,0 +1,45 @@
+.UserProfile {
+    height: 100%;
+}
+
+.title {
+    font-weight: 800;
+    font-family: sans-serif;
+    font-size: 600%;
+    float: left;
+}
+
+.mainGrid {
+    justify-content: center;
+}
+
+.attributes {
+    text-align: left;
+    font-size: larger;
+}
+
+.halfPage {
+    background-color:rgb(214, 184, 241);
+    font-weight: bold;
+    margin: 25px;
+    outline: 10px black;
+    font-family:sans-serif, Verdana, Geneva, Tahoma, ;
+    font-size: xx-large;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.privacyButton {
+    float: right;
+    margin-top: 2%;
+    margin-right: 10%;
+    font-size:x-large;
+    font-family: sans-serif;
+}
+
+.profileButtons {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50;
+    width: 100%;
+    
+}
