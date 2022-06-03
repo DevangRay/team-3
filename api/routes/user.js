@@ -3,6 +3,30 @@ var router = express.Router();
 var fetch = require('node-fetch');
 var auth = require('./auth')
 var dotenv = require('dotenv').config()
+const db = require("../firebase.js");
+const {setDoc, doc, deleteDoc}= require("firebase/firestore");
+
+const collectionName = "users"
+
+router.post("/profile", (req, res, next) => {
+    // console.log("profilereq.params: ", req.params)
+    // const profileId = req.params.id
+    console.log("user.js profile: ", req.body);
+    const profileId = req.body.name
+    const data = {
+        name: profileId,
+        // email: req.body.email,
+        password: profileId,
+        username: profileId,
+        showTopSongs: false,
+        showTopArtists: false,
+        showLikedSongs: false,
+        publicProfile: false
+    } 
+    setDoc(doc(db, collectionName, profileId), data)
+    .then(res.send('Written'))
+    .catch((err) => {console.log("user post error: ", err)})
+})
 
 //actual spotify api calls after authorization
 router.get('/home', async (req, res, next) => {
