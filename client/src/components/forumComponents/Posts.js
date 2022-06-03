@@ -3,7 +3,6 @@ import React, {useState, useEffect} from 'react'
 import {Box, Button } from '@mui/material'
 import Post from './Post';
 
-//for each after get api and add has liked 
 function Posts(props) {
   const currentForumList = props.currentForumList
   const currentForumName = props.currentForumName

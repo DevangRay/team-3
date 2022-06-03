@@ -36,7 +36,7 @@ function Forum() {
   return (
     <>
       <h1>Forum Main Page</h1>
-      <CreateForum />
+      <CreateForum forumList = {currentForumList}/>
       <Button></Button>
       <Autocomplete
       onChange={handleForumSelectSearch}

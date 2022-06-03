@@ -17,5 +17,10 @@ router.get("/allForums", async (req, res, next) => {
   }
 })
 
+router.post("/createForum", (req, res, next) => {
+  console.log(req.body)
+  res.send("Received")
+})
+
 
 module.exports = router;

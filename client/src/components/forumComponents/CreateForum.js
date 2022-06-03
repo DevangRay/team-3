@@ -1,5 +1,8 @@
 import React from 'react';
 import {useState} from 'react';
+
+import axios from'axios';
+
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -8,8 +11,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function CreateForum() {
+export default function CreateForum(props) {
+  const {forumList} = props;
   const [open, setOpen] = useState(false);
+  const [newForumName, setNewForumName] = useState("");
+  const [creator, setCreator] = useState("mohamedUsername")
   const [newForum, setNewForum] = useState("");
 
   const handleClickOpen = () => {
@@ -21,9 +27,27 @@ export default function CreateForum() {
   };
 
   const handleSubmit = () => {
-    //post to firebase
+    const tempNewForum = {
+      creator: creator,
+      forumName: newForumName,
+      forumID: forumList.length
+    }
+    setNewForum(tempNewForum)
+    post()
     setOpen(false);
+    setNewForumName("")
   };
+
+  const post = () => {
+    axios.post("http://localhost:9000/posts/createPost", newForum)
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err))
+  }
+
+  const handleInputText = event => {
+    setNewForumName(event.target.value);
+    console.log("newForumName",newForumName)
+};
 
   return (
     <div>
@@ -37,6 +61,7 @@ export default function CreateForum() {
             To create a new Forum, please enter the name of the Forum down bellow and hit Submit.
           </DialogContentText>
           <TextField
+            onChange={handleInputText}
             autoFocus
             margin="dense"
             id="name"
