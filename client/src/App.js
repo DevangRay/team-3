@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <AccessTokenProvider>
         <Routes>
-          <Route path="/" exact element={<Login/>} />
+          <Route path="/login" exact element={<Login/>} />
         </Routes>
         <div className='navBar'>
           <Nav className="navBar"/>
