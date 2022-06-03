@@ -1,5 +1,8 @@
 import React from 'react';
 import {useState} from 'react';
+
+import axios from 'axios'
+
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -14,7 +17,7 @@ export default function CreatePost(props) {
   const [tempText, setTempText] = useState("");
   const [newPost, setNewPost] = useState({
     creator:"",
-    forumID:"",
+    forumName:"",
     likes:0,
     postID:"",
     text:""
@@ -41,19 +44,26 @@ export default function CreatePost(props) {
   const handleSubmit = () => {
     setNewPost({
       creator:"temp",
-      forumID:currentForumName,
+      forumName:currentForumName,
       likes:0,
       postID:"0",
       text:tempText
-      
     })
-    //post to firebase
+    post()
     setOpen(false);
     setTempText("")
   };
 
-  
+  const post = () => {
+    axios.post("http://localhost:9000/posts/allPosts", newPost)
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err))
+  }
 
+  
+  if(currentForumName==="Choose Forum"){
+    return null
+  }
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>

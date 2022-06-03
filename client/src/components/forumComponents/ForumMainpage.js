@@ -4,65 +4,49 @@ import CreateForum from './CreateForum'
 import ForumViewer from './ForumViewer'
 
 
-import {Box, InputLabel, MenuItem, FormControl, Select} from '@mui/material'
-
-import {TextField, Stack, Autocomplete} from '@mui/material'
+import {TextField, Autocomplete, Button} from '@mui/material'
 
 function Forum() {
   
-  const [currentForumList, setCurrentForumList] = useState([]);
-  const[searchForumList, setSearchForumList] = useState();
-  const [forum, setForum] = useState('');
+  const [currentForumList, setCurrentForumList] = useState([{label:"Choose Forum", forumID:99}]);
+  const [forum, setForum] = useState("Choose Forum");
 
   useEffect(()=> {
     fetch('http://localhost:9000/forum/allForums')
     .then(res=>res.json())
     .then(
-      data => setCurrentForumList(data)
-    ).then(
-      
+      data => {
+        const tempList = data.result.map(forum => forum)
+        const finalList = []
+        for (let i = 0; i < tempList.length; i++) {
+          finalList.push({label: tempList[i].forumName, forumID: tempList[i].forumID}) 
+        }
+        setCurrentForumList(finalList)
+      }
     )
   },[])
 
 
-  // useEffect(() => {
-  //   const forumList = []
-  //       getDocs(collection(db, "forums"))
-  //       .then((allForums) => {
-  //         allForums.forEach((forum) => 
-  //           forumList.push({creator:forum.creator, forumID:forum.forumID, forumName:forum.forumName, ...forum.data()
-  //           }))
-  //           return forumList
-  //       }).then(
-  //         forumList=>setCurrentForumList(forumList), console.log(db)
-  //       )
-    
-  // }, [])  
-
-  const tempData = [{label: 'Forum 1', forumID: 0}, {label: 'Forum 2', forumID: 1},{label: 'Forum 3', forumID: 2},{label: 'Forum 4', forumID: 3}]
+  //const tempData = [{label: 'Forum 1', forumID: 0}, {label: 'Forum 2', forumID: 1},{label: 'Forum 3', forumID: 2},{label: 'Forum 4', forumID: 3}]
 
   const handleForumSelectSearch = (event) => {
-    console.log(currentForumList)
-    console.log(event)
     setForum(event.target.innerText);
   };
-
-
 
   return (
     <>
       <h1>Forum Main Page</h1>
-      <h1>Testing searchable dropdown</h1>
+      <CreateForum />
+      <Button></Button>
       <Autocomplete
       onChange={handleForumSelectSearch}
       disablePortal
       id="forum-drop-down-search"
-      options={tempData}
+      options={currentForumList}
       sx={{ width: 300 }}
       renderInput={(params) =>
       <TextField {...params} label="Forum" />}
     />
-      <CreateForum />
       <ForumViewer currentForum = {forum}/>
     </>
 
@@ -71,32 +55,3 @@ function Forum() {
 }
 
 export default Forum
-
-
-
-
-
-
-
-
-
-// const handleForumSelect = (event) => {
-//   console.log(event)
-//   setForum(event.target.value);
-// };
-
-
-// {/* <Box sx={{ minWidth: 120 }}>
-// <FormControl fullWidth>
-//   <InputLabel>Forum</InputLabel>
-//   <Select
-//     value={forum}
-//     label="Fourm"
-//     onChange={handleForumSelect}
-//   >
-//     <MenuItem value={"Forum1"}>Forum1</MenuItem>
-//     <MenuItem value={"Forum2"}>Forum2</MenuItem>
-//     <MenuItem value={"Forum3"}>Forum3</MenuItem>
-//   </Select>
-// </FormControl>
-// </Box> */}
