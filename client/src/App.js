@@ -13,6 +13,7 @@ import UserProfile from './components/UserProfile';
 import Discover from './components/Discover';
 // import UserProfile from './components/UserProfile';
 import { useState } from 'react';
+import ForumMainpage from './components/forumComponents/ForumMainpage'
 
 function App() {
   
@@ -37,6 +38,7 @@ function App() {
             <Route path="/profile" element={<UserProfile/>}/>
             <Route path='/discover' element = {<Discover/>} />
             <Route path='/profile' element={<UserProfile/>} />
+            <Route path='/forum' element={<ForumMainpage/>} />
             <Route path="/*" element={<Error/>}/>
           </Routes>
         </div>
