@@ -36,5 +36,24 @@ router.post('/createPost', async (req, res) => {
 
 })
 
+router.post('/updateLike', async (req, res) => {
+  try{
+      console.log(req.body)
+      const ref = await addDoc(collection(db, "posts"), {
+          creator: req.body.creator,
+          forumName: req.body.forumName,
+          postID: req.body.postID,
+          text: req.body.text,
+          usersLiked: req.body.usersLiked
+      })
+      console.log('Document written with id', ref.id)
+      return res.status(201).json({message: 'Post Successful!'})
+  } catch(error){
+      console.log(error)
+      return res.status(500).send(error)
+  }
+
+})
+
 
 module.exports = router;

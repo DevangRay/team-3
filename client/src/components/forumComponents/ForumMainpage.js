@@ -8,7 +8,7 @@ import {TextField, Autocomplete, Button} from '@mui/material'
 
 function Forum() {
   
-  const [currentForumList, setCurrentForumList] = useState([{label:"Choose Forum", forumID:99}]);
+  const [currentForumList, setCurrentForumList] = useState();
   const [forum, setForum] = useState("Choose Forum");
 
   useEffect(()=> {
@@ -21,6 +21,7 @@ function Forum() {
         for (let i = 0; i < tempList.length; i++) {
           finalList.push({label: tempList[i].forumName, forumID: tempList[i].forumID}) 
         }
+        console.log(finalList)
         setCurrentForumList(finalList)
       }
     )
@@ -49,9 +50,12 @@ function Forum() {
   };
 
   return (
-    <>
+    <div>
       <h1>Forum Main Page</h1>
-      <CreateForum forumList = {currentForumList}/>
+      {
+        currentForumList&&
+      <CreateForum forumList = {currentForumList} functionForum={forumListChanged}/>
+      }
       <Button></Button>
       <Autocomplete
       onChange={handleForumSelectSearch}
@@ -62,8 +66,9 @@ function Forum() {
       renderInput={(params) =>
       <TextField {...params} label="Forum" />}
     />
-      <ForumViewer currentForum = {forum} methodToChange = {forumListChanged()}/>
-    </>
+      <ForumViewer currentForum = {forum}/>
+      
+    </div>
 
     
   )

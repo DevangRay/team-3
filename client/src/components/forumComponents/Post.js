@@ -1,6 +1,9 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+
 import {Box, Button } from '@mui/material'
+
+import axios from 'axios'
 
 function Post(props) {
     const{data} = props;
@@ -23,7 +26,9 @@ function Post(props) {
     
 
     const likePost = () => {
+
         setLiked("Liked")
+        
         //post to firebase and add to like post array in user
         //post to firebae and add to users Liked array in post
      }
@@ -34,9 +39,23 @@ function Post(props) {
     //delete from fireebase posts user liked array  
     }
 
+    const changeLike = () => {
+      const newPostToPost={creator:currentUser,
+        forumName:data.creator,
+        likes:data.likes,
+        postID:data.length,
+        text:data.text,
+        usersLiked:data.usersLiked}
+      console.log("newPostToPost: ",newPostToPost)
+      axios.post("http://localhost:9000/posts/updateLike", newPostToPost)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err))
+    };
+
     useEffect(() => {
       checkIfLiked()
       getPostLikeData()
+      changeLike()
 }, [])
 
   useEffect(() => { 
@@ -64,10 +83,11 @@ function Post(props) {
     )
   }, [])
 
+
   return (
     
     <Box sx={{ border: 1 }} >
-      <h2>Creator:{data.creator}</h2>
+      <h2>Creator: {data.creator}</h2>
       <h3>{data.text}</h3>
       <h3>Likes: {likedNumber}</h3>
       <Button onClick={likePost}>Add to Like</Button>
