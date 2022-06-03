@@ -51,84 +51,72 @@ function Login() {
     }}}, [])
 
     return (
-    <div className='login'>
-            <div className="center">
-            <Helmet>
-              <title>Login</title>
-            </Helmet>
-            {/* <Grid container justify = "center" >
-                <Box>
-                <Button onClick={(e) => onClick(e)}>
-                Log in to App
-                </Button>
-                </Box>
-            </Grid> */}
-            </div>
-    <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
-        <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage: 'url(https://helios-i.mashable.com/imagery/articles/04Xg9z0OpmENu16hFQ4XGcs/hero-image.fill.size_1248x702.v1652732411.png)',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-            <Typography variant="h1" style={{
-                color:'white'
-            }} >
-                    This Is a filler!Ho
-            </Typography>
-          <Box
-            sx={{
-              my: 8,
-              mx: 4,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h4" >
-              Spotify Chat
-            </Typography>
-            <Box component="form" noValidate sx={{ mt: 1 }}>
-                <Typography variant="h5" >
-                    Spotify Chat Uses Spotify Authorization!
-                </Typography>
-                <Typography variant="h5" >
-                    Have a Spotify Account? 
-                    Simply Click on the Button to Sign In!
-                </Typography>
-              <Button
-                fullWidth
-                variant="contained"
-                style ={
-                    {
-                        backgroundColor: "rgb(130, 123, 208)"
-                    }
-                }
-                sx={{ mt: 3, mb: 2 }}
-                onClick={(e) => onClick(e)}
-              >
-                Sign In
-              </Button>
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
-    </ThemeProvider>
+      <div className = 'login'>        
+        <div className='center'>
+          <Helmet>
+            <title>Login</title>
+          </Helmet>
         </div>
+
+        <ThemeProvider theme={theme}>
+          <Grid container component="main" sx={{ height: '100vh'}}>
+            <CssBaseline/>
+
+            <Grid item xs={false} sm={4} md={7} sx={{
+              backgroundImage: 'url(https://helios-i.mashable.com/imagery/articles/04Xg9z0OpmENu16hFQ4XGcs/hero-image.fill.size_1248x702.v1652732411.png)',
+              backgroundRepeat: 'no-repeat',
+              backgroundColor: (t) =>
+                t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}/>
+            
+            <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+              <Typography variant="h1" style={{color: "white"}}>
+                This Is a filler!Ho
+              </Typography>
+              <Box sx={{
+                my: 8, 
+                mx: 4,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+              }}>
+                <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                  <LockOutlinedIcon />
+                </Avatar>
+
+                <Typography component="h1" variant="h4" >
+                  Spotify Chat
+                </Typography>
+
+                <Box component="form" noValidate sx={{ mt: 1 }}>
+                  <Typography variant="h5" >
+                      Spotify Chat Uses Spotify Authorization!
+                  </Typography>
+
+                  <Typography variant="h5" >
+                      Have a Spotify Account Simply Click on the 
+                      Sign In Button to Sign In! 
+                  </Typography>
+
+                  <Button
+                    fullWidth
+                    variant="contained"
+                    style={{
+                      backgroundColor: "rgb(130, 123, 208)"
+                    }}
+                    sx={{mt:3, mb: 2}}
+                    onClick={(e) => onClick(e)}
+                    >
+                    Sign in
+                  </Button>
+                </Box>
+              </Box>
+            </Grid>
+          </Grid>
+        </ThemeProvider>
+      </div>
     )
 }
 
