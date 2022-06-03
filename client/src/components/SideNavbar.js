@@ -22,7 +22,7 @@ const Nav = () => {
       <SidebarLink text = "Liked Songs" Icon = {FavoriteIcon} link="/liked-song" />
 //       <SidebarLink text = "Messages" Icon = {MessageIcon} link="/message" />
       <SidebarLink text = "Profile" Icon = {PersonIcon} link="/profile" />
-      <Link to="/" style={{ textDecoration: 'none'}}><Button id="logout">Log Out</Button></Link>
+      <Link to="/login" style={{ textDecoration: 'none'}}><Button id="logout">Log Out</Button></Link>
     </div>
   )
 }
