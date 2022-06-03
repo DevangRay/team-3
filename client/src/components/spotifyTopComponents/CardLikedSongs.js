@@ -57,7 +57,7 @@ export default function CardLikedSongs(props) {
                 </Typography>
 
                 <Typography variant="body1" color="text.secondary" component="div">
-                    {props.array[state.index].track.album.name}
+                    from {props.array[state.index].track.album.name}
                 </Typography>
 
             </CardContent>
