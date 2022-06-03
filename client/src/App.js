@@ -19,15 +19,20 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Login/>} />
         </Routes>
-          <Nav/>
-        <Routes>
-          <Route path="/home" element={<Home/>}/>
-          <Route path="/error" element={<Error/>}/>
-          <Route path="/top-artists" element={<TopArtistPage/>}/>
-          <Route path="/top-song" element={<TopSongPage/>}/>
-          <Route path="/liked-song" element={<LikedSongPage/>}/>
-          <Route path="/*" element={<Error/>}/>
-        </Routes>
+        <div className='navBar'>
+          <Nav className="navBar"/>
+        </div>
+
+        <div className='body'>
+          <Routes>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/error" element={<Error/>}/>
+            <Route path="/top-artists" element={<TopArtistPage/>}/>
+            <Route path="/top-song" element={<TopSongPage/>}/>
+            <Route path="/liked-song" element={<LikedSongPage/>}/>
+            <Route path="/*" element={<Error/>}/>
+          </Routes>
+        </div>
       </AccessTokenProvider>
     </div>
   );
