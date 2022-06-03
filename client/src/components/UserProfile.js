@@ -27,7 +27,7 @@ function UserProfile() {
     return (
       <div className="UserProfile">
           <Container>
-            <div className="title">Hello, {name}!</div>
+            <div className="title">Hello!</div>
             <ListItem className="attributes">Username: </ListItem>
             <ListItem className="attributes">Liked Posts: {likedPosts}</ListItem>
             <hr color="black"></hr>

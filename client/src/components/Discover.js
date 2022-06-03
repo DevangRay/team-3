@@ -14,7 +14,7 @@ function Discover() {
             const response = await fetch('/appUser/users');
             const body = await response.json();
             setUsers(body);
-            console.log('body', body);
+            // console.log('body', body);
         }
         getUsers();
     }, [])
