@@ -20,13 +20,13 @@ function Login() {
     const theme = createTheme();
     const navigate = useNavigate();
     const { accessToken, setAccessToken } = useContext(AccessTokenContext);
-    
+        
     const onClick = (e) => {
         fetch("http://localhost:9000/auth").then(res => res.json())
         .then(data => {
             window.open(data.url)
         })
-        .then(window.close())
+        // .then(window.close())
         .catch((err) => {console.log(err)})
     }
 
