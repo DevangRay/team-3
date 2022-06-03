@@ -26,7 +26,7 @@ function Login() {
         .then(data => {
             window.open(data.url)
         })
-        .then(window.close())
+        // .then(window.close())
         .catch((err) => {console.log(err)})
     }
 
@@ -54,7 +54,7 @@ function Login() {
 
 
         <div className='login'>
-            <div class="center">
+            <div className="center">
             <Helmet>
               <title>Login</title>
             </Helmet>

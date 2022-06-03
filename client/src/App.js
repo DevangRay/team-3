@@ -21,7 +21,7 @@ function App() {
         </Routes>
           <Nav/>
         <Routes>
-          <Route path="home" element={<Home/>}/>
+          <Route path="/home" element={<Home/>}/>
           <Route path="/error" element={<Error/>}/>
           <Route path="/top-artists" element={<TopArtistPage/>}/>
           <Route path="/top-song" element={<TopSongPage/>}/>
