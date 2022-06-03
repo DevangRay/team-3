@@ -8,7 +8,8 @@ import TopSongPage from './components/spotifyTopComponents/TopSongPage';
 import LikedSongPage from './components/spotifyTopComponents/LikedSongPage';
 import Error from './components/Error';
 import Home from './components/Home';
-import Nav from './components/SideNavbar'
+import Nav from './components/SideNavbar';
+import UserProfile from './components/UserProfile';
 import { useState } from 'react';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/top-artists" element={<TopArtistPage/>}/>
             <Route path="/top-song" element={<TopSongPage/>}/>
             <Route path="/liked-song" element={<LikedSongPage/>}/>
+             <Route path="/profile" element={<UserProfile/>}>
             <Route path="/*" element={<Error/>}/>
           </Routes>
         </div>
