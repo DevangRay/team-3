@@ -1,18 +1,22 @@
 import "./sidebarLink.css"
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { Link, NavLink } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Button, MenuItem } from "@mui/material";
 
 function SidebarLink({text, Icon, link}){
+
     return (
-        <div>
-            <Link to = {link} style={{ textDecoration: 'none'}}>
-            <div className="link">
-            <Icon style={{color:"black"}}/>
-            <h2 style={{color:"black"}}>{text}</h2>
+        <nav>
+            <NavLink activeClassName="active-sidebar" to = {link} style={{textDecoration:'none'}}>
+            <div className = 'link'
+            >
+            <Icon/>
+            <h2>{text}</h2>
             </div>
-            </Link>
-        </div>
+            </NavLink>
+        </nav>
     );
+
 }
 
 export default SidebarLink;

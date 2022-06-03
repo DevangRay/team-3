@@ -13,11 +13,12 @@ import { Button } from '@mui/material';
 
 
 const Nav = () => {
+
   return (
     <div className='sidebar' >
-     <SidebarLink text = "Homepage" Icon ={HomeIcon} link="/home" />
-      <SidebarLink text = "Top Artist" Icon = {StarIcon} link = "/top-artists"/>
-      <SidebarLink text = "Top Song" Icon = {AutoAwesomeIcon} link="/top-song" />
+     <SidebarLink  text = "Homepage" Icon ={HomeIcon} link="/home" />
+      <SidebarLink text = "Top Artist" Icon = {StarIcon} link = "/top-artists" />
+      <SidebarLink text = "Top Song" Icon = {AutoAwesomeIcon} link="/top-song"/>
       <SidebarLink text = "Liked Songs" Icon = {FavoriteIcon} link="/liked-song" />
       <SidebarLink text = "Messages" Icon = {MessageIcon} link="/message" />
       <SidebarLink text = "Profile" Icon = {PersonIcon} link="/profile" />

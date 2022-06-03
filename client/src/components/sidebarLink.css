@@ -4,19 +4,24 @@
     cursor: pointer;
     border-radius: 30px;
 }
-
+.active *{
+    color: #8c28f0 !important;
+    background-color: #cab7f5 !important;
+}
 .link:hover{
     background-color: #cab7f5;
-    color: #50b7f5;
+    color: #a350f5;
     transition: color 100ms ease-out;
 }
 
-.link > h2 {
+.link > h2{
     font-weight: 700;
     font-size: 20px;
     margin-right: 20px;
+    color: black;
 }
 
 .link > .MuiSvgIcon-root{
     padding: 20px;
+    color: black;
 }
