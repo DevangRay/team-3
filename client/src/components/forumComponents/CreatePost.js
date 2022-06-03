@@ -19,13 +19,7 @@ export default function CreatePost(props) {
   const [postList, setPostList] = useState([])
   const [currentUser, setCurrentUser] = useState("mohamedUsername")
   const [tempText, setTempText] = useState("");
-  const [newPost, setNewPost] = useState({
-    creator:currentUser,
-    forumName:currentForumName,
-    likes:0,
-    postID:postList.length,
-    text:tempText
-  });
+  const [newPost, setNewPost] = useState();
 
   useEffect(()=>{
     fetch('http://localhost:9000/posts/allPosts')
@@ -47,7 +41,7 @@ export default function CreatePost(props) {
         setPostList(finalList)
       }
     )
-  },[])
+  },[currentForumName])
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -71,22 +65,17 @@ export default function CreatePost(props) {
     const newPostToPost={creator:currentUser,
       forumName:currentForumName,
       likes:0,
-      postID:postList.size,
+      postID:postList.length,
       text:tempText}
     setNewPost(newPostToPost)
-    console.log("newPost: ",newPost)
-    post()
+    console.log("newPostToPost: ",newPostToPost)
+    axios.post("http://localhost:9000/posts/createPost", newPostToPost)
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err))
     setOpen(false);
     setTempText("")
   };
 
-  const post = () => {
-    axios.post("http://localhost:9000/posts/createPost", newPost)
-    .then((res) => console.log(res.data))
-    .catch((err) => console.log(err))
-  }
-
-  
   if(currentForumName==="Choose Forum"){
     return null
   }
@@ -116,7 +105,10 @@ export default function CreatePost(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
+          {
+            postList&&
           <Button onClick={handleSubmit}>Submit</Button>
+          }
         </DialogActions>
       </Dialog>
     </div>

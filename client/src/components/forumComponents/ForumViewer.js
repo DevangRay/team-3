@@ -6,7 +6,6 @@ import CreatePost from './CreatePost';
 
 function ForumViewer(props) {
   const{currentForum} = props;
-  const [currentForumID, setCurrentForumID] = useState(99);
   const [forumList, setForumList] = useState([]);
 
   useEffect(()=> {
@@ -22,11 +21,13 @@ function ForumViewer(props) {
         setForumList(finalList)
       }
     )
-  },[])
+  },[currentForum])
 
   const debugg = () => {
     console.log(currentForum)
   }
+
+  
 
     
   //currentForum gets passed along as prop fine and updates fine 

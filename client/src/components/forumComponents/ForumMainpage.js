@@ -24,7 +24,7 @@ function Forum() {
         setCurrentForumList(finalList)
       }
     )
-  },[])
+  },[forum])
 
 
   //const tempData = [{label: 'Forum 1', forumID: 0}, {label: 'Forum 2', forumID: 1},{label: 'Forum 3', forumID: 2},{label: 'Forum 4', forumID: 3}]

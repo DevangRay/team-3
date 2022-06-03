@@ -44,7 +44,7 @@ function Posts(props) {
       }
     )
     .then(makeCurrentPostList())
-  },[])
+  },[currentForumName])
 
   const debugg = () => {
     console.log("PostList:", postList)
